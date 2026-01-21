@@ -1,0 +1,29 @@
+{% extends "core/base_public.html" %}
+{% block title %}Login | BizMind{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h2>Login to BizMind</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            {% for field in form %}
+                <label>{{ field.label }}</label>
+                {{ field }}
+                {{ field.errors }}
+            {% endfor %}
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>
+            Don’t have an account?
+            <a href="{% url 'accounts:signup' %}">Create one</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

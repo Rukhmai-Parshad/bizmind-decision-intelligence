@@ -1,0 +1,20 @@
+{% load static %}
+<nav class="dash-navbar">
+    <div class="dash-left">
+        <a class="dash-logo" href="{% url 'dashboard:home' %}">
+            BizMind
+        </a>
+
+        <ul class="dash-links">
+            <li><a href="{% url 'dashboard:home' %}">Overview</a></li>
+            <li><a href="{% url 'datasets:dataset_list' %}">Datasets</a></li>
+        </ul>
+    </div>
+
+    <div class="dash-user">
+        <span class="user-email">{{ request.user.email }}</span>
+        <a href="{% url 'accounts:logout' %}" class="logout-btn">
+            Logout
+        </a>
+    </div>
+</nav>
